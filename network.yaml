@@ -1,0 +1,24 @@
+network:
+   version: 2
+   renderer: networkd
+   ethernets:
+     ens33:
+        dhcp4: no
+        addresses: [192.168.0.10/24]
+        # gateway4:
+        nameservers:
+            addresses: [8.8.8.8, 1.1.1.1]
+     ens37:
+        dhcp4: true
+        nameservers:
+            addresses: [8.8.8.8, 1.1.1.1]
+   vlans:
+     ens33.10:
+       id: 10
+       link: ens33
+       addresses: [192.168.10.10/27]
+     ens33.20:
+       id: 20
+       link: ens33
+       addresses: [192.168.20.20/27]
+ 
